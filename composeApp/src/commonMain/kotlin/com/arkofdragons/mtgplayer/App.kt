@@ -15,7 +15,6 @@ fun App() {
     MaterialTheme {
         var contentPage by remember { mutableStateOf("Home") }
 
-
         Row {
 
             Menu(listOf("Home", "Settings"), onOptionChange = fun(selection: String) { contentPage = selection })

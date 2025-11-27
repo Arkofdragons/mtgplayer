@@ -20,7 +20,12 @@ fun Menu(options: List<String>, onOptionChange: (String) -> Unit, modifier: Modi
 
       var showMenu by remember { mutableStateOf(true) }
 
-    Column(verticalArrangement = Arrangement.SpaceBetween, modifier = modifier) {
+    Column(verticalArrangement = Arrangement.Top, modifier = modifier) {
+
+        Button(onClick = { showMenu = !showMenu }) {
+            Text("Menu")
+        }
+
         AnimatedVisibility(showMenu, enter = expandHorizontally(), exit = shrinkHorizontally()) {
 
             Column(
@@ -32,12 +37,6 @@ fun Menu(options: List<String>, onOptionChange: (String) -> Unit, modifier: Modi
                     }
                 }
             }
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
-
-        Button(onClick = { showMenu = !showMenu }) {
-            Text("Menu")
         }
     }
 }
