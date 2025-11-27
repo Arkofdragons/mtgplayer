@@ -1,0 +1,51 @@
+package com.arkofdragons.mtgplayer.components.pages
+
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.arkofdragons.mtgplayer.Greeting
+import com.arkofdragons.mtgplayer.components.SuddenVisibility
+import mtgplayer.composeapp.generated.resources.Res
+import mtgplayer.composeapp.generated.resources.compose_multiplatform
+import org.jetbrains.compose.resources.painterResource
+
+@Composable
+fun Home(visible: Boolean = false, modifier: Modifier = Modifier) {
+    SuddenVisibility(
+        visible = visible,
+        modifier = modifier,
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            var showLogo by remember { mutableStateOf(false) }
+            Button(onClick = { showLogo = !showLogo }) {
+                Text("Click me!")
+            }
+            AnimatedVisibility(showLogo) {
+                val greeting = remember { Greeting().greet() }
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Image(painterResource(Res.drawable.compose_multiplatform), null)
+                    Text("Compose: $greeting")
+                }
+            }
+        }
+    }
+}
