@@ -7,4 +7,5 @@ enum class AttributeType {
     SUBTYPE,
     SUPERTYPE,
     NAME,
+    ABILITY,
 }

@@ -21,11 +21,23 @@ class IntegerDynamicValue(
         return value + other
     }
 
-    operator fun Int.plus(other: IntegerDynamicValue): Int {
-        return other.value + this
-    }
-
     operator fun plus(other: IntegerDynamicValue): Int {
         return value + other.value
     }
+
+    operator fun minus(other: Int): Int {
+        return value - other
+    }
+
+    operator fun minus(other: IntegerDynamicValue): Int {
+        return value - other.value
+    }
+}
+
+operator fun Int.plus(other: IntegerDynamicValue): Int {
+    return other.value + this
+}
+
+operator fun Int.minus(other: IntegerDynamicValue): Int {
+    return this - other.value
 }

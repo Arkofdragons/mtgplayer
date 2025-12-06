@@ -19,4 +19,6 @@ fun ParseCards() {
     val card1: GameObject = GameObject.initializeFromScryfallCard(scryfallCards[0])
 
     println(Json.encodeToString(card1))
+
+    println(Json.encodeToString(GameObject.initializeFromScryfallCard(scryfallCards[6])))
 }

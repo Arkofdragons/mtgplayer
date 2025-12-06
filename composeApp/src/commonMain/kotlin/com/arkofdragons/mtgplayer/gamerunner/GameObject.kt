@@ -1,7 +1,12 @@
 package com.arkofdragons.mtgplayer.gamerunner
 
 import com.arkofdragons.mtgplayer.cardparser.ScryfallCard
-import com.arkofdragons.mtgplayer.gamerunner.attribute.*
+import com.arkofdragons.mtgplayer.gamerunner.ability.Ability
+import com.arkofdragons.mtgplayer.gamerunner.ability.generateAbilities
+import com.arkofdragons.mtgplayer.gamerunner.attribute.AbilityAttribute
+import com.arkofdragons.mtgplayer.gamerunner.attribute.Attribute
+import com.arkofdragons.mtgplayer.gamerunner.attribute.calculatePower
+import com.arkofdragons.mtgplayer.gamerunner.attribute.calculateToughness
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,15 +21,15 @@ class GameObject {
         fun initializeFromScryfallCard(originCard: ScryfallCard): GameObject {
             val gameObject = GameObject()
 
-            calculateToughness(originCard)?.let { toughness: ToughnessAttribute ->
-                gameObject.addAttribute(toughness)
-            }
+            calculateToughness(originCard)?.addTo(gameObject)
 
-            calculatePower(originCard)?.let { power: PowerAttribute ->
-                gameObject.addAttribute(power)
-            }
+            calculatePower(originCard)?.addTo(gameObject)
 
             //abilities
+            val abilities: List<Ability> = generateAbilities(originCard)
+            abilities.forEach { ability ->
+                gameObject.addAttribute(AbilityAttribute(ability))
+            }
 
             return gameObject
         }

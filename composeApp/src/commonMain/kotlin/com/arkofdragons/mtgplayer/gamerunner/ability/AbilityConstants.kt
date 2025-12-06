@@ -9,3 +9,10 @@ enum class AbilityTarget {
     SPELL,
     COUNTER
 }
+
+enum class AbilityType {
+    ACTIVATED,
+    TRIGGERED,
+    MANA,
+    STATIC
+}
