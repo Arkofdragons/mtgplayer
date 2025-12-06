@@ -3,27 +3,42 @@ package com.arkofdragons.mtgplayer.components
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandHorizontally
 import androidx.compose.animation.shrinkHorizontally
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import mtgplayer.composeapp.generated.resources.Res
+import mtgplayer.composeapp.generated.resources.materialIconMenu
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.vectorResource
 
 @Composable
 fun Menu(options: List<String>, onOptionChange: (String) -> Unit, modifier: Modifier = Modifier) {
 
-      var showMenu by remember { mutableStateOf(true) }
+    var showMenu by remember { mutableStateOf(false) }
 
-    Column(verticalArrangement = Arrangement.Top, modifier = modifier) {
-
-        Button(onClick = { showMenu = !showMenu }) {
-            Text("Menu")
+    Column(modifier) {
+        Button(
+            onClick = { showMenu = !showMenu },
+            shape = CircleShape,
+            modifier = Modifier.size(40.dp),
+            contentPadding = PaddingValues(0.dp)
+        ) {
+            Image(
+                painterResource(Res.drawable.materialIconMenu),
+                contentDescription = "Menu Icon"
+            )
         }
 
         AnimatedVisibility(showMenu, enter = expandHorizontally(), exit = shrinkHorizontally()) {
