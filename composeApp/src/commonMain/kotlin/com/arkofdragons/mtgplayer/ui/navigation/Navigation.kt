@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.components
+package com.arkofdragons.mtgplayer.ui.navigation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.expandHorizontally

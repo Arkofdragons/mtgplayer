@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.components
+package com.arkofdragons.mtgplayer.ui.navigation
 
 import mtgplayer.composeapp.generated.resources.Res
 import mtgplayer.composeapp.generated.resources.materialIconHome

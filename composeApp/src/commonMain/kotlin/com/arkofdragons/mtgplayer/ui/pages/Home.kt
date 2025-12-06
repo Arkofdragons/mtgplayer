@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.components.pages
+package com.arkofdragons.mtgplayer.ui.pages
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -11,7 +11,8 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkofdragons.mtgplayer.Greeting
-import com.arkofdragons.mtgplayer.components.SuddenVisibility
+import com.arkofdragons.mtgplayer.cardParser.ParseCards
+import com.arkofdragons.mtgplayer.ui.components.SuddenVisibility
 import mtgplayer.composeapp.generated.resources.Res
 import mtgplayer.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
@@ -30,6 +31,11 @@ fun Home(visible: Boolean = false, modifier: Modifier = Modifier) {
             Button(onClick = { showLogo = !showLogo }) {
                 Text("Click me!")
             }
+
+            Button(onClick = { ParseCards() }) {
+                Text("Parse")
+            }
+
             AnimatedVisibility(showLogo) {
                 val greeting = remember { Greeting().greet() }
                 Column(

@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.components
+package com.arkofdragons.mtgplayer.ui.components
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -23,5 +23,4 @@ fun SuddenVisibility(
         label,
         content,
     )
-
 }
