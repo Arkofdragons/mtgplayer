@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.cardParser
+package com.arkofdragons.mtgplayer.cardparser
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

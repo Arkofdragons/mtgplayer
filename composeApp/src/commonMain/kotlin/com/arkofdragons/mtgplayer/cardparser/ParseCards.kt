@@ -1,5 +1,6 @@
-package com.arkofdragons.mtgplayer.cardParser
+package com.arkofdragons.mtgplayer.cardparser
 
+import com.arkofdragons.mtgplayer.gamerunner.GameObject
 import kotlinx.io.buffered
 import kotlinx.io.files.Path
 import kotlinx.io.files.SystemFileSystem
@@ -15,7 +16,7 @@ fun ParseCards() {
 
     val scryfallCards: List<ScryfallCard> = Json.decodeFromString<List<ScryfallCard>>(rawJson)
 
+    val card1: GameObject = GameObject.initializeFromScryfallCard(scryfallCards[0])
 
-
-    println(scryfallCards)
+    println(Json.encodeToString(card1))
 }

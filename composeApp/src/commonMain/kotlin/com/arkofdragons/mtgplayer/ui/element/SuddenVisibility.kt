@@ -1,4 +1,4 @@
-package com.arkofdragons.mtgplayer.ui.components
+package com.arkofdragons.mtgplayer.ui.element
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.AnimatedVisibilityScope
